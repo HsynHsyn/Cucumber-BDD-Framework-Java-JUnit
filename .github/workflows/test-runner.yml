@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  pull_request:
+    branches:
+      - master  # Adjust to your repository's default branch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Java
+        uses: actions/setup-java@v2
+        with:
+          java-version: '17'  # Adjust to your project's Java version
+          distribution: 'adopt'  # Specify 'adopt' for AdoptOpenJDK
+
+      - name: Build with Maven
+        run: mvn clean install  # Replace with your build command
+
+      - name: Run Cucumber Tests
+        run: mvn test  # Replace with your test command
