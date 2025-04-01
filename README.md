@@ -1,47 +1,41 @@
-Sample Cucumber BDD Framework (Java + JUnit)
 
-This repository contains a collection of sample projects and libraries that demonstrate how to use selenium-cucumber-java, a Behavior-Driven Development (BDD) framework with Cucumber and Java. The projects showcase automation script development and utilise various reporters such as HTML, and JSON. Additionally, it offers the ability to capture screenshots for tests and generate error shots for failed test cases.
+# Sample Cucumber BDD Framework (Java + JUnit)
 
-The tests are written using the Cucumber Framework in Gherkin, which allows for BDD-style scenarios. JUnit is used as the test runner to execute the feature files.
+This repository contains a collection of sample projects and libraries that demonstrate how to use selenium-cucumber-java, a **Behavior-Driven Development (BDD)** framework with **Cucumber and Java**. The projects showcase automation script development and utilise various reporters such as HTML, and JSON. Additionally, it offers the ability to capture screenshots for tests and generate error shots for failed test cases.
+
+The tests are written using the **Cucumber Framework** in Gherkin, which allows for BDD-style scenarios. JUnit is used as the test runner to execute the feature files.
 
 ![Framework Structure](https://raw.githubusercontent.com/HsynHsyn/Cucumber-BDD-Framework-Java-JUnit/a2b58588f024d3eb978511cf773274a9fd76b3a7/BDD_frameworkStructure.png)
 
+## 📌 Project Overview
 
+This project demonstrates how to build a basic **Selenium WebDriver testing framework in Java**. The repository contains:
 
-📌 Project Overview
+- **Driver management** with **WebDriver instances.**
+- **Reusable UI methods** and **Page Object Model (POM)** implementations.
+- **Cucumber-based feature files** for defining test scenarios in **BDD-style**.
+- **Test runners are using JUnit** for executing feature files.
+- **Various sample test scenarios** covering different web components.
 
-This project demonstrates how to build a basic Selenium WebDriver testing framework in Java. The repository contains:
+---
 
-Driver management with WebDriver instances.
-
-Reusable UI methods and Page Object Model (POM) implementations.
-
-Cucumber-based feature files for defining test scenarios in BDD-style.
-
-Test runners are using JUnit for executing feature files.
-
-Various sample test scenarios covering different web components.
-
-⚙️ Installation & Prerequisites
+## ⚙️ Installation & Prerequisites
 
 To set up and run this project, ensure that you have the following installed:
 
-JDK 1.8+ (Ensure that the Java class path is properly set)
+- **JDK 1.8+** (Ensure that the Java class path is properly set)
+- **Maven**&#x20;
+- **IntelliJ** (or any preferred IDE that supports Java and Maven)
+- **Required Plugins:**
+  - **Maven**
+  - **Cucumber**
+- **Browser Driver** (Ensure that you have the appropriate browser driver for your desired browser and that the class path is correctly configured)
 
-Maven 
+---
 
-IntelliJ (or any preferred IDE that supports Java and Maven)
+## 📂 Project Structure
 
-Required Plugins:
-
-Maven
-
-Cucumber
-
-Browser Driver (Ensure that you have the appropriate browser driver for your desired browser and that the class path is correctly configured)
-
-📂 Project Structure
-
+```
 Sample-Cucumber-BDD-Framework-Java-JUnit
 
 ├── .github/workflows/test-runner.yml      # CI/CD workflow for GitHub Actions
@@ -80,41 +74,41 @@ Sample-Cucumber-BDD-Framework-Java-JUnit
 ├── .gitignore                             # Ignored files for Git
 ├── configuration.properties               # Configuration file
 └── pom.xml                              # Maven POM file
+```
 
-🏗 Framework Components
+---
 
-1️⃣ Driver Management
+## 🏗 Framework Components
 
-Driver.java: Manages WebDriver instances and configurations.
+### 1️⃣ Driver Management
 
-ConfigurationReader.java: Reads configurations from properties files.
+- **Driver.java**: Manages WebDriver instances and configurations.
+- **ConfigurationReader.java**: Reads configurations from properties files.
 
-2️⃣ Page Object Model (POM)
+### 2️⃣ Page Object Model (POM)
 
-CommonPageElements.java: Common UI components across pages.
+- **CommonPageElements.java**: Common UI components across pages.
+- **DashboardPage.java**: Contains methods for interacting with the dashboard.
+- **HomePage.java**: Represents the home page and its elements.
 
-DashboardPage.java: Contains methods for interacting with the dashboard.
+### 3️⃣ Cucumber Step Definitions
 
-HomePage.java: Represents the home page and its elements.
+- **DashboardStepDefs.java**: Step definitions for dashboard-related scenarios.
+- **EbayStepDefs.java**: Step definitions for eBay UI testing.
+- **ProductsStepDefs.java**: Step definitions for product-related interactions.
 
-3️⃣ Cucumber Step Definitions
+### 4️⃣ Test Execution
 
-DashboardStepDefs.java: Step definitions for dashboard-related scenarios.
+- **CukesRunner.java/FailedTestRunner.java**: Cucumber JUnit test runners.
+- **Hooks.java**: Manages setup and teardown of tests using `@Before` and `@After` hooks.
 
-EbayStepDefs.java: Step definitions for eBay UI testing.
+---
 
-ProductsStepDefs.java: Step definitions for product-related interactions.
+## 📝 Writing Feature Files
 
-4️⃣ Test Execution
+Feature files are located in `test/resources/uiFeatures/`. Example:
 
-CukesRunner.java/FailedTestRunner.java: Cucumber JUnit test runners.
-
-Hooks.java: Manages setup and teardown of tests using @Before and @After hooks.
-
-📝 Writing Feature Files
-
-Feature files are located in test/resources/uiFeatures/. Example:
-
+```gherkin
 Feature: Performing a Google Search
 
     As a user on the Google search page
@@ -128,27 +122,38 @@ Feature: Performing a Google Search
         When I enter "Selenium Webdriver" into the search box
         And I click the search button
         Then I should see a list of search results
+```
 
-🚀 Running Tests
+---
 
-Using Maven
+## 🚀 Running Tests
+
+### Using Maven
 
 Run all tests:
 
+```sh
 mvn test
+```
 
 Run tests with a specific tag:
 
+```sh
 mvn test -Dcucumber.options="--tags @test001"
+```
 
-Using JUnit
+### Using JUnit
 
-You can execute tests using JUnit runners (CukesRunner.java or FailedTestRunner.java) inside your IDE.
+You can execute tests using JUnit runners (`CukesRunner.java` or `FailedTestRunner.java`) inside your IDE.
 
-📊 Test Reports
+---
 
-After running the tests, reports are generated in the target directory:
+## 📊 Test Reports
 
-HTML Reports: Provides a detailed test execution overview.
+After running the tests, **reports** are generated in the `target` directory:
 
-JUnit Reports: XML-based results for CI/CD integrations.
+- **HTML Reports**: Provides a detailed test execution overview.
+- **JUnit Reports**: XML-based results for CI/CD integrations.
+
+---
+
