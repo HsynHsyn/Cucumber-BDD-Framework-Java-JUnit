@@ -4,9 +4,10 @@ This repository contains a collection of sample projects and libraries that demo
 
 The tests are written using the Cucumber Framework in Gherkin, which allows for BDD-style scenarios. JUnit is used as the test runner to execute the feature files.
 
-BDD_frameworkStructure.png
-Cucumber-BDD-Framework Diagrams.png
-https://github.com/HsynHsyn/Cucumber-BDD-Framework-Java-JUnit/blob/a2b58588f024d3eb978511cf773274a9fd76b3a7/BDD_frameworkStructure.png
+![Framework Structure](https://raw.githubusercontent.com/HsynHsyn/Cucumber-BDD-Framework-Java-JUnit/a2b58588f024d3eb978511cf773274a9fd76b3a7/BDD_frameworkStructure.png)
+
+
+
 📌 Project Overview
 
 This project demonstrates how to build a basic Selenium WebDriver testing framework in Java. The repository contains:
