@@ -1,8 +1,7 @@
 name: Run Cucumber Tests
 
 on:
-  pull_request:
-    branches:
+  branches:
       - master  # Adjust to your repository's default branch
 
 jobs:
