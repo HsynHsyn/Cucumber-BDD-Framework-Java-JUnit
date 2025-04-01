@@ -35,4 +35,4 @@ jobs:
         run: echo "file://$(pwd)/target/cucumber-reports/index.html"
 
       - name: Show Report in Logs
-        run: cat target/cucumber-reports/index.html
+        run: cat target/cucumber-html-reports/index.html
