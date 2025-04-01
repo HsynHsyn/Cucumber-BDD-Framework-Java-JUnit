@@ -33,4 +33,4 @@ jobs:
 
 
       - name: Show Report in Logs
-        run: cat target/cucumber-html-reports/index.html
+        run: target/cucumber-html-reports/index.html
