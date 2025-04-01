@@ -7,6 +7,5 @@ public class ProductsStepDefs extends CommonUISteps {
 
     public void goToProduct(){
 
-
     }
 }

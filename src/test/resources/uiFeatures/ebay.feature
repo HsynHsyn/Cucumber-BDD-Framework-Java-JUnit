@@ -1,5 +1,4 @@
 Feature: Ebay Feature
-
   @ebay
   Scenario: Ebay product search
     Given the user goes to ebay website

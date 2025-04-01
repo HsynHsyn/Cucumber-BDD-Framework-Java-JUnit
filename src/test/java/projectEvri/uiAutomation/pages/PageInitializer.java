@@ -3,12 +3,13 @@ package projectEvri.uiAutomation.pages;
 
 import projectEvri.uiAutomation.utilities.Driver;
 
+
+/**
+ * Initializes page objects for the UI automation framework.
+ * This class creates instances of all page classes for test execution.
+ */
 public class PageInitializer extends Driver {
 
-    /**
-     * PageInitializer is responsible for initializing page objects.
-     * It creates instances of all page classes to be used in test execution.
-     */
     public static DashboardPage dashboardPage;
     public static HomePage homePage;
 
@@ -16,7 +17,6 @@ public class PageInitializer extends Driver {
         dashboardPage = new DashboardPage();
         homePage = new HomePage();
     }
-
 
 
 }

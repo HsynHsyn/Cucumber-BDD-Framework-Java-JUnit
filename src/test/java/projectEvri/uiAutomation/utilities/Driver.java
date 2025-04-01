@@ -16,11 +16,13 @@ import projectEvri.uiAutomation.pages.PageInitializer;
 import java.time.Duration;
 
 public class Driver {
+
     public static WebDriver driver;
     public static Actions actions;
 
     public static WebDriver getDriver() {
         String browser = ConfigurationReader.get("browser");
+
         switch (browser) {
             case "chrome":
                 driver = new ChromeDriver();
