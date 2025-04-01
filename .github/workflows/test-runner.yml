@@ -31,8 +31,6 @@ jobs:
          name: Cucumber-Reports
          path: target/cucumber-html-reports/
 
-      - name: Print Cucumber Report URL
-        run: echo "file://$(pwd)/target/cucumber-html-reports"
 
       - name: Show Report in Logs
-        run: cat target/cucumber-html-reports/
+        run: cat target/cucumber-html-reports/index.html
