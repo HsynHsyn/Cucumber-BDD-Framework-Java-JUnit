@@ -1,4 +1,4 @@
-name: CI
+name: Run Cucumber Tests
 
 on:
   pull_request:
