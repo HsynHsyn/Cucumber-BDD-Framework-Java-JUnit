@@ -1,5 +1,5 @@
 
-# Sample Cucumber BDD Framework (Java + JUnit)
+# Cucumber BDD Framework (Java + JUnit)
 
 This repository contains a collection of sample projects and libraries that demonstrate how to use selenium-cucumber-java, a **Behavior-Driven Development (BDD)** framework with **Cucumber and Java**. The projects showcase automation script development and utilise various reporters such as HTML, and JSON. Additionally, it offers the ability to capture screenshots for tests and generate error shots for failed test cases.
 
