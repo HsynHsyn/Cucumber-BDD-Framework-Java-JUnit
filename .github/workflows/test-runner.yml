@@ -18,6 +18,11 @@ jobs:
         with:
           java-version: '17'
           distribution: 'adopt'
+      - name: Build with Maven
+        run: mvn clean install  # Replace with your build command
+
+      - name: Run Cucumber Tests
+        run: mvn test  # Replace with your test command
 
       - name: Build and Generate Reports
         run: mvn clean verify
