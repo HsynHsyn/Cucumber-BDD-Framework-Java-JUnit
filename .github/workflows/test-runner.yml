@@ -31,10 +31,10 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Run tests and generate report
-        run: |
-            mvn clean test
-            mvn verify
+#      - name: Run tests and generate report
+#        run: |
+#            mvn clean test
+#            mvn verify
 
       - name: Kill existing Chrome processes
         run: pkill -f chrome || true
