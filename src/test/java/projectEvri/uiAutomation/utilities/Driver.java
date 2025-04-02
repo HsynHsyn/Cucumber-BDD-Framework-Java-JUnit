@@ -24,8 +24,6 @@ public class Driver {
         String browser = ConfigurationReader.get("browser");
 
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--no-sandbox");
-        options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--headless=new");
         options.addArguments("--remote-allow-origins=*");
 
