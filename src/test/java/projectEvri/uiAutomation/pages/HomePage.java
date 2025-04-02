@@ -2,6 +2,7 @@ package projectEvri.uiAutomation.pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import projectEvri.uiAutomation.utilities.ConfigurationReader;
 
 /**
  * Represents the Home Page of the application.
@@ -27,8 +28,10 @@ public class HomePage extends CommonPageElements {
 
     public void login(){
         this.loginButtonTop.click();
-        this.emailAddress.sendKeys(System.getenv("EVRIEMAIL"));
-        this.password.sendKeys(System.getenv("EVRIPASSWORD"));
+        //this.emailAddress.sendKeys(System.getenv("EVRIEMAIL"));
+        //this.password.sendKeys(System.getenv("EVRIPASSWORD"));
+        this.emailAddress.sendKeys(ConfigurationReader.get("email"));
+        this.password.sendKeys(ConfigurationReader.get("password"));
         this.loginButtonSubmit.click();
     }
 
