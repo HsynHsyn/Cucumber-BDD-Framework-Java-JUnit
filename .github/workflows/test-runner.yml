@@ -41,3 +41,6 @@ jobs:
             echo "Using EVRI credentials"
             echo "Email: $EVRIEMAIL"
             echo "Password: $EVRIPASSWORD"
+
+      - name: Run Cucumber Tests
+        run: mvn test -Dwebdriver.chrome.driver=/usr/bin/chromedriver -Dheadless=true
