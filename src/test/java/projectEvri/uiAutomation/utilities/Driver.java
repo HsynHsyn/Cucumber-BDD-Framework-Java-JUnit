@@ -41,8 +41,8 @@ public class Driver {
                 options.addArguments("--remote-debugging-port=9222");
                 options.addArguments("--disable-gpu");
                 options.addArguments("--window-size=1920,1080");
-                //driver = new ChromeDriver(options);
-                driver = new ChromeDriver();
+                driver = new ChromeDriver(options);
+                //driver = new ChromeDriver();
                 break;
             case "chrome-headless":
                 driver = new ChromeDriver(new ChromeOptions().addArguments("--headless"));
