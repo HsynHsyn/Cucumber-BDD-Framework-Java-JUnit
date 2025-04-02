@@ -13,10 +13,13 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.safari.SafariDriver;
 import projectEvri.uiAutomation.pages.PageInitializer;
 
+import java.io.File;
 import java.time.Duration;
+import java.util.UUID;
 
 public class Driver {
 
+    private static final java.util.UUID UUID = null;
     public static WebDriver driver;
     public static Actions actions;
 
@@ -32,8 +35,12 @@ public class Driver {
         switch (browser) {
             case "chrome":
                 ChromeOptions options = new ChromeOptions();
+                String profilePath = "/tmp/chrome_profile_" + UUID.randomUUID();
+                new File(profilePath).mkdirs();
+                options.addArguments("--user-data-dir=" + profilePath);
                 options.addArguments("--remote-allow-origins=*");
-                options.addArguments("--user-data-dir=/tmp/chrome_profile_" + java.util.UUID.randomUUID());
+                options.addArguments("--no-sandbox");
+                options.addArguments("--disable-dev-shm-usage");
                 driver = new ChromeDriver(options);
                 //driver = new ChromeDriver();
                 break;
