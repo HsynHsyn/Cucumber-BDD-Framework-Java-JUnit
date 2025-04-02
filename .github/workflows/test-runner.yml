@@ -13,31 +13,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4.0.0
 
-#      - name: Install Chrome and ChromeDriver
-#        run: |
-#          # Install required system dependencies
-#          sudo apt-get update
-#
-#          # Install Chrome from official Google repo (modern method)
-#          sudo mkdir -p /etc/apt/keyrings
-#          curl -fsSL https://dl.google.com/linux/linux_signing_key.pub | sudo gpg --dearmor -o /etc/apt/keyrings/google-chrome.gpg
-#          echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/google-chrome.gpg] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
-#          sudo apt-get update
-#          sudo apt-get install -y google-chrome-stable
-
       - name: Set up Java
         uses: actions/setup-java@v3
         with:
           java-version: '17'
-          distribution: 'temurin'
-
-#      - name: Run tests and generate report
-#        run: |
-#            mvn clean test
-#            mvn verify
-
-#      - name: Kill existing Chrome processes
-#        run: pkill -f chrome || true
+          distribution: 'adopt'
 
       - name: Upload Cucumber Reports
         uses: actions/upload-artifact@v4.0.0
@@ -49,18 +29,6 @@ jobs:
         run: mvn clean install  # Replace with your build command
 
       - name: Run Cucumber Tests
-        run: mvn clean test  # Replace with your test command
-
-      - name: List JSON report files
-        run: ls -l target/cucumber.json
-
-      - name: Set up environment variables for EVRI credentials
-        run: |
-            echo "EVRIEMAIL=${{ secrets.EVRIEMAIL }}" >> $GITHUB_ENV
-            echo "EVRIPASSWORD=${{ secrets.EVRIPASSWORD }}" >> $GITHUB_ENV
-
-      - name: Set WebDriver environment variable
-        run: |
-         echo "webdriver.chrome.driver=/usr/local/bin/chromedriver" >> $GITHUB_ENV
+        run: mvn test  # Replace with your test command
 
       
