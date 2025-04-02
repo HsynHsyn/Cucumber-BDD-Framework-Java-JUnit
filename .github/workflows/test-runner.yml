@@ -39,12 +39,6 @@ jobs:
       - name: Kill existing Chrome processes
         run: pkill -f chrome || true
 
-      - name: Run Cucumber Tests
-        run: export DISPLAY=:99
-          Xvfb :99 -screen 0 1920x1080x24 +extension RANDR > /dev/null 2>&1 &
-          mvn test \
-          -Dwebdriver.chrome.driver=/usr/local/bin/chromedriver \
-          -DchromeOptions.args="--no-sandbox,--disable-dev-shm-usage,--headless=new,--remote-debugging-port=9222,--window-size=1920x1080,--disable-gpu,--disable-software-rasterizer"
       - name: Upload Cucumber Reports
         uses: actions/upload-artifact@v4.0.0
         with:
