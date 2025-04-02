@@ -17,15 +17,7 @@ jobs:
         run: |
           # Install required system dependencies
           sudo apt-get update
-          sudo apt-get install -y \
-            wget curl unzip xvfb \
-            libxi6 libgbm-dev libxshmfence1 \
-            libxcb-dri3-0 libdrm2 libxkbcommon0 \
-            libasound2 libatk1.0-0 libatk-bridge2.0-0 \
-            libxcomposite1 libxdamage1 libxfixes3 \
-            libxrandr2 libxtst6 libnss3 libnspr4 \
-            fonts-liberation libappindicator3-1 libdbusmenu-gtk3-4
-
+          
           # Install Chrome from official Google repo (modern method)
           sudo mkdir -p /etc/apt/keyrings
           curl -fsSL https://dl.google.com/linux/linux_signing_key.pub | sudo gpg --dearmor -o /etc/apt/keyrings/google-chrome.gpg
