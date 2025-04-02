@@ -3,7 +3,6 @@ package projectEvri.uiAutomation.pages;
 
 import projectEvri.uiAutomation.utilities.Driver;
 
-
 /**
  * Initializes page objects for the UI automation framework.
  * This class creates instances of all page classes for test execution.

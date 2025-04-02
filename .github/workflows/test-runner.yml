@@ -5,28 +5,42 @@ on:
     branches:
       - master  # Adjust to your repository's default branch
 
-#jobs:
-#  build:
-#    runs-on: ubuntu-latest
-#
-#    steps:
-#      - name: Checkout code
-#        uses: actions/checkout@v4.0.0
-#
-#      - name: Set up Java
-#        uses: actions/setup-java@v3
-#        with:
-#          java-version: '17'  # Adjust to your project's Java version
-#          distribution: 'adopt'  # Specify 'adopt' for AdoptOpenJDK
-#
-#      - name: Build with Maven
-#        run: mvn clean install  # Replace with your build command
-#
-#      - name: Run Cucumber Tests
-#        run: mvn test  # Replace with your test command
-#
-#      - name: Upload Cucumber Reports
-#        uses: actions/upload-artifact@v4.0.0
-#        with:
-#         name: Cucumber-Reports
-#         path: target/cucumber-html-reports/
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4.0.0
+
+      - name: Set up Java
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'  # Adjust to your project's Java version
+          distribution: 'adopt'  # Specify 'adopt' for AdoptOpenJDK
+
+      - name: Build with Maven
+        run: mvn clean install  # Replace with your build command
+
+      - name: Run Cucumber Tests
+        run: mvn test  # Replace with your test command
+
+      - name: Upload Cucumber Reports
+        uses: actions/upload-artifact@v4.0.0
+        with:
+         name: Cucumber-Reports
+         path: target/cucumber-html-reports/
+
+      - name: Set up environment variables for EVRI credentials
+        run: |
+           echo "EVRIEMAIL=${{ secrets.EVRIEMAIL }}" >> $GITHUB_ENV
+           echo "EVRIPASSWORD=${{ secrets.EVRIPASSWORD }}" >> $GITHUB_ENV
+
+      - name: Use EVRI credentials in your build
+        run: |
+            echo "Using EVRI credentials"
+            echo "Email: $EVRIEMAIL"
+            echo "Password: $EVRIPASSWORD"
+
+
+

@@ -10,11 +10,31 @@ import org.openqa.selenium.support.FindBy;
  */
 public class HomePage extends CommonPageElements {
 
-    @FindBy(id = "gdpr-banner-accept")
-    public WebElement acceptAllButton;
+    @FindBy(css = "input[id='1-email']")
+    public WebElement emailAddress;
 
-    @FindBy(xpath = "//input[@id='gh-ac']")
-    public WebElement searchButton;
+    @FindBy(css = "input[name='password']")
+    public WebElement password;
+
+    @FindBy(css = "button[name='submit']")
+    public WebElement loginButtonSubmit;
+
+    @FindBy(css = "button#onetrust-reject-all-handler")
+    public WebElement cookieRejectButton;
+
+
+
+
+
+
+
+
+    public void login(){
+        this.loginButtonTop.click();
+        this.emailAddress.sendKeys(System.getenv("EVRIEMAIL"));
+        this.password.sendKeys(System.getenv("EVRIPASSWORD"));
+        this.loginButtonSubmit.click();
+    }
 
 
 }

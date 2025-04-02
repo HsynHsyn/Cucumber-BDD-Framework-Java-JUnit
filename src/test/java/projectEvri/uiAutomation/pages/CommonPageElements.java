@@ -16,7 +16,39 @@ public abstract class CommonPageElements extends Driver {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(id = "about")
-    public WebElement aboutUsButton;
+    @FindBy(xpath = "//button[@data-test-id='login-button-top']")
+    public WebElement loginButtonTop;
+
+    @FindBy(xpath = "//button[@data-test-id='signup-button-top']")
+    public WebElement signUpButtonTop;
+
+    @FindBy(css = "button[aria-label='expand Send menu']")
+    public WebElement sendButtonTop;
+
+    @FindBy(css = "button[aria-label='expand Track menu']")
+    public WebElement trackButtonTop;
+
+    @FindBy(css = "button[aria-label='expand Return menu']")
+    public WebElement returnButtonTop;
+
+    @FindBy(xpath = "//button[contains(text(), 'Our Services')]")
+    public WebElement ourServicesButtonTop;
+
+    @FindBy(xpath = "//button[contains(text(), 'ParcelShops')]")
+    public WebElement parcelShopsButtonTop;
+
+    @FindBy(xpath = "//button[contains(text(), 'Careers')]")
+    public WebElement careersButtonTop;
+
+    @FindBy(xpath = "//button[contains(text(), 'Help')]")
+    public WebElement helpButtonTop;
+
+
+
+
+
+
+
+
 
 }
