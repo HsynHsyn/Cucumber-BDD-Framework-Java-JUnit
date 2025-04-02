@@ -122,22 +122,18 @@
                 <version>5.7.0</version>
                 <executions>
                     <execution>
-                        <id>execution</id>
                         <phase>verify</phase>
                         <goals>
                             <goal>generate</goal>
                         </goals>
-                        <configuration>
-                            <projectName>SampleProjectAutomation</projectName>
-                            <outputDirectory>${project.build.directory}</outputDirectory>
-                            <inputDirectory>${project.build.directory}</inputDirectory>
-                            <jsonFiles>
-                                <param>**/cucumber*.json</param>
-                            </jsonFiles>
-                        </configuration>
                     </execution>
                 </executions>
+                <configuration>
+                    <cucumberJsonFile>target/cucumber.json</cucumberJsonFile>
+                    <outputDirectory>target/cucumber-reports</outputDirectory>
+                </configuration>
             </plugin>
+
         </plugins>
     </build>
 

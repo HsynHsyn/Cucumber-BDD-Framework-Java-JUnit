@@ -51,13 +51,11 @@ jobs:
 
       - name: Set up environment variables for EVRI credentials
         run: |
-          echo "EVRIEMAIL=${{ secrets.EVRIEMAIL }}" >> $GITHUB_ENV
-          echo "EVRIPASSWORD=${{ secrets.EVRIPASSWORD }}" >> $GITHUB_ENV
+            echo "EVRIEMAIL=${{ secrets.EVRIEMAIL }}" >> $GITHUB_ENV
+            echo "EVRIPASSWORD=${{ secrets.EVRIPASSWORD }}" >> $GITHUB_ENV
 
-      - name: Use EVRI credentials in your build
-        run: |
-          echo "Using EVRI credentials"
-          echo "Email: $EVRIEMAIL"
-          echo "Password: $EVRIPASSWORD"
+            - name: Set WebDriver environment variable
+              run: |
+                echo "webdriver.chrome.driver=/usr/local/bin/chromedriver" >> $GITHUB_ENV
 
       
