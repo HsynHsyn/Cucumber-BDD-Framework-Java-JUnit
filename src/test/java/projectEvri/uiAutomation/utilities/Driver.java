@@ -23,10 +23,10 @@ public class Driver {
     public static WebDriver getDriver() {
         String browser = ConfigurationReader.get("browser");
 
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--remote-allow-origins=*");
         switch (browser) {
             case "chrome":
-                ChromeOptions options = new ChromeOptions();
-                options.addArguments("--remote-allow-origins=*");
                 driver = new ChromeDriver();
                 break;
             case "chrome-headless":
