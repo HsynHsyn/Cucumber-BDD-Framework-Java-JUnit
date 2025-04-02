@@ -46,7 +46,7 @@ jobs:
           path: target/cucumber-html-reports/
 
       - name: List JSON report files
-        run: ls -la target/cucumber-html-reports/
+        run:  target/cucumber-html-reports/
 
       - name: Set up environment variables for EVRI credentials
         run: |
