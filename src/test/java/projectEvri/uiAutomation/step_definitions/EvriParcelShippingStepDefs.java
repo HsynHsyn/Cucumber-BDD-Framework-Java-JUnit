@@ -97,10 +97,10 @@ public class EvriParcelShippingStepDefs extends CommonUISteps {
     }
 
     @When("user enters recipient details {string}, {string}")
-    public void user_enters_recipient_details(String receiptFirsName, String receiptLastName) {
+    public void user_enters_recipient_details(String recipientFirstName, String recipientLastName) {
 
-        dashboardPage.receiptFirstNameInput.sendKeys(receiptFirsName);
-        dashboardPage.receiptLastNameInput.sendKeys(receiptLastName);
+        dashboardPage.receiptFirstNameInput.sendKeys(recipientFirstName);
+        dashboardPage.receiptLastNameInput.sendKeys(recipientLastName);
     }
     @When("user enters recipient address {string}, {string}")
     public void user_enters_recipient_address(String addressLine, String toPostcode) {

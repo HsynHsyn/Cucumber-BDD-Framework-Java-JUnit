@@ -31,8 +31,10 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Build with Maven
-        run: mvn clean install
+      - name: Run tests and generate report
+        run: |
+            mvn clean test
+            mvn verify
 
       - name: Kill existing Chrome processes
         run: pkill -f chrome || true
@@ -48,6 +50,9 @@ jobs:
         with:
           name: Cucumber-Reports
           path: target/cucumber-html-reports/
+
+      - name: List JSON report files
+        run: ls -la target/cucumber-reports/
 
       - name: Set up environment variables for EVRI credentials
         run: |
