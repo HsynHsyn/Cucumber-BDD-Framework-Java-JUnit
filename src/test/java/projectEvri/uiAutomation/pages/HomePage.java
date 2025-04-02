@@ -22,14 +22,6 @@ public class HomePage extends CommonPageElements {
     @FindBy(css = "button#onetrust-reject-all-handler")
     public WebElement cookieRejectButton;
 
-//============================================
-    @FindBy(id = "gdpr-banner-accept")
-    public WebElement acceptAllButton;
-
-    @FindBy(xpath = "//input[@id='gh-ac']")
-    public WebElement searchButton;
-
-//============================================
 
 
 

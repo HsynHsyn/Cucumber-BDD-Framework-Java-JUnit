@@ -15,22 +15,24 @@ jobs:
 
       - name: Install Chrome and ChromeDriver
         run: |
+          # Install dependencies
           sudo apt-get update
-          sudo apt-get remove -y google-chrome-stable || true
-          wget -q -O chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-          sudo dpkg -i chrome.deb || sudo apt-get -f install -y
-          rm chrome.deb
+          sudo apt-get install -y wget curl unzip
 
-          CHROME_VERSION=$(google-chrome --version | awk '{print $3}' | cut -d '.' -f1)
-          echo "Chrome version: $CHROME_VERSION"
+          # Install Google Chrome
+          wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+          sudo dpkg -i google-chrome-stable_current_amd64.deb
+          sudo apt --fix-broken install -y
 
-          DRIVER_VERSION=$(curl -s "https://chromedriver.storage.googleapis.com/LATEST_RELEASE_$CHROME_VERSION")
-          echo "Chromedriver version: $DRIVER_VERSION"
-
-          wget -q "https://chromedriver.storage.googleapis.com/$DRIVER_VERSION/chromedriver_linux64.zip"
+          # Install ChromeDriver
+          LATEST_CHROMEDRIVER=$(wget -qO- https://chromedriver.storage.googleapis.com/LATEST_RELEASE)
+          wget https://chromedriver.storage.googleapis.com/$LATEST_CHROMEDRIVER/chromedriver_linux64.zip
           unzip chromedriver_linux64.zip
           sudo mv chromedriver /usr/local/bin/
-          rm chromedriver_linux64.zip
+
+          # Verify installations
+          google-chrome-stable --version
+          chromedriver --version
 
       - name: Set up Java
         uses: actions/setup-java@v3

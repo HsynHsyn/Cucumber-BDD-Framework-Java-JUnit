@@ -45,9 +45,6 @@ public abstract class CommonPageElements extends Driver {
 
 
 
-    @FindBy(id = "about")
-    public WebElement aboutUsButton;
-
 
 
 
