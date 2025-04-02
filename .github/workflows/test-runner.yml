@@ -41,6 +41,3 @@ jobs:
             echo "Using EVRI credentials"
             echo "Email: $EVRIEMAIL"
             echo "Password: $EVRIPASSWORD"
-
-
-
