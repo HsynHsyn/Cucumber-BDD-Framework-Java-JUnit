@@ -33,7 +33,9 @@ public class Driver {
             case "chrome":
                 ChromeOptions options = new ChromeOptions();
                 options.addArguments("--remote-allow-origins=*");
-                driver = new ChromeDriver();
+                options.addArguments("--user-data-dir=/tmp/chrome_profile_" + java.util.UUID.randomUUID());
+                driver = new ChromeDriver(options);
+                //driver = new ChromeDriver();
                 break;
             case "chrome-headless":
                 driver = new ChromeDriver(new ChromeOptions().addArguments("--headless"));
