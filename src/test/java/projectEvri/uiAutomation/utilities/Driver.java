@@ -35,9 +35,7 @@ public class Driver {
         switch (browser) {
             case "chrome":
                 ChromeOptions options = new ChromeOptions();
-                String profilePath = "/tmp/chrome_profile_" + UUID.randomUUID();
-                new File(profilePath).mkdirs();
-                options.addArguments("--user-data-dir=" + profilePath);
+                options.addArguments("--user-data-dir=/tmp/chrome_profile_" + UUID.randomUUID());
                 options.addArguments("--remote-allow-origins=*");
                 options.addArguments("--no-sandbox");
                 options.addArguments("--disable-dev-shm-usage");
