@@ -53,8 +53,8 @@ jobs:
             echo "EVRIEMAIL=${{ secrets.EVRIEMAIL }}" >> $GITHUB_ENV
             echo "EVRIPASSWORD=${{ secrets.EVRIPASSWORD }}" >> $GITHUB_ENV
 
-            - name: Set WebDriver environment variable
-              run: |
-                echo "webdriver.chrome.driver=/usr/local/bin/chromedriver" >> $GITHUB_ENV
+      - name: Set WebDriver environment variable
+        run: |
+         echo "webdriver.chrome.driver=/usr/local/bin/chromedriver" >> $GITHUB_ENV
 
       
