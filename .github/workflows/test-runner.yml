@@ -49,7 +49,7 @@ jobs:
         run: mvn clean install  # Replace with your build command
 
       - name: Run Cucumber Tests
-        run: mvn test  # Replace with your test command
+        run: mvn clean test  # Replace with your test command
 
       - name: List JSON report files
         run: ls -l target/cucumber.json
