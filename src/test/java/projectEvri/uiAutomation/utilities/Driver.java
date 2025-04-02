@@ -35,10 +35,12 @@ public class Driver {
         switch (browser) {
             case "chrome":
                 ChromeOptions options = new ChromeOptions();
-                options.addArguments("--user-data-dir=/tmp/chrome_profile_" + UUID.randomUUID());
-                options.addArguments("--remote-allow-origins=*");
                 options.addArguments("--no-sandbox");
                 options.addArguments("--disable-dev-shm-usage");
+                options.addArguments("--headless");
+                options.addArguments("--remote-debugging-port=9222");
+                options.addArguments("--disable-gpu");
+                options.addArguments("--window-size=1920,1080");
                 driver = new ChromeDriver(options);
                 //driver = new ChromeDriver();
                 break;
