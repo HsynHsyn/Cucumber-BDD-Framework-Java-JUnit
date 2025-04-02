@@ -3,7 +3,7 @@ name: Run Cucumber Tests
 on:
   push:
     branches:
-      - master  # Adjust to your repository's default branch
+      - master
 
 jobs:
   build:
@@ -16,8 +16,11 @@ jobs:
       - name: Install Chrome and ChromeDriver
         run: |
           sudo apt-get update
-          sudo apt-get remove -y google-chrome-stable || true
+          wget -qO- https://dl.google.com/linux/linux_signing_key.pub | sudo tee /etc/apt/trusted.gpg.d/google-chrome.asc
+          echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
+          sudo apt-get update
           sudo apt-get install -y google-chrome-stable
+          
           CHROME_VERSION=$(google-chrome --version | awk '{print $3}' | cut -d '.' -f1)
           DRIVER_VERSION=$(curl -s "https://chromedriver.storage.googleapis.com/LATEST_RELEASE_$CHROME_VERSION")
           wget -q "https://chromedriver.storage.googleapis.com/$DRIVER_VERSION/chromedriver_linux64.zip"
@@ -31,16 +34,11 @@ jobs:
           java-version: '17'
           distribution: 'adopt'
 
-      - name: Set up environment variables for EVRI credentials
-        run: |
-          echo "EVRIEMAIL=${{ secrets.EVRIEMAIL }}" >> $GITHUB_ENV
-          echo "EVRIPASSWORD=${{ secrets.EVRIPASSWORD }}" >> $GITHUB_ENV
-
       - name: Build with Maven
         run: mvn clean install
 
       - name: Run Cucumber Tests
-        run: mvn test -Dwebdriver.chrome.driver=/usr/bin/chromedriver -Dheadless=true
+        run: mvn test -Dwebdriver.chrome.driver=/usr/local/bin/chromedriver -Dheadless=true
 
       - name: Upload Cucumber Reports
         uses: actions/upload-artifact@v4.0.0
@@ -48,10 +46,16 @@ jobs:
           name: Cucumber-Reports
           path: target/cucumber-html-reports/
 
-      - name: Kill existing Chrome processes (if any)
+      - name: Set up environment variables for EVRI credentials
         run: |
-          if pgrep chrome; then
-            pkill -f chrome
-          else
-            echo "No running Chrome processes found."
-          fi
+          echo "EVRIEMAIL=${{ secrets.EVRIEMAIL }}" >> $GITHUB_ENV
+          echo "EVRIPASSWORD=${{ secrets.EVRIPASSWORD }}" >> $GITHUB_ENV
+
+      - name: Use EVRI credentials in your build
+        run: |
+          echo "Using EVRI credentials"
+          echo "Email: $EVRIEMAIL"
+          echo "Password: $EVRIPASSWORD"
+
+      - name: Kill existing Chrome processes
+        run: pkill -f chrome || true
