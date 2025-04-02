@@ -141,12 +141,10 @@
                         <configuration>
                             <projectName>ProjectAutomation</projectName>
                             <outputDirectory>${project.build.directory}/cucumber-html-reports</outputDirectory>
+
                             <jsonFiles>
-                                <param>${project.build.directory}/cucumber.json</param>
+                                <param>**/cucumber.json</param>
                             </jsonFiles>
-<!--                            <jsonFiles>-->
-<!--                                <param>**/cucumber.json</param>-->
-<!--                            </jsonFiles>-->
                         </configuration>
                     </execution>
                 </executions>
