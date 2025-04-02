@@ -19,7 +19,7 @@ import java.util.UUID;
 
 public class Driver {
 
-    private static final java.util.UUID UUID = null;
+
     public static WebDriver driver;
     public static Actions actions;
 
