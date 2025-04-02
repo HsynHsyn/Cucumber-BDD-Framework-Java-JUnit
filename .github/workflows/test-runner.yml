@@ -15,20 +15,24 @@ jobs:
 
       - name: Install Chrome and ChromeDriver
         run: |
-          # Install dependencies
           sudo apt-get update
-          sudo apt-get install -y wget curl unzip xvfb libxi6 libgbm-dev
+          sudo apt-get install -y \
+            wget curl unzip xvfb \
+            libxi6 libgbm-dev libxshmfence1 \
+            libxcb-dri3-0 libdrm2 libxkbcommon0 \
+            libasound2 libatk1.0-0 libatk-bridge2.0-0 \
+            libxcomposite1 libxdamage1 libxfixes3 \
+            libxrandr2 libxtst6 libnss3 libnspr4
 
-          # Install Chrome (stable channel)
-          sudo mkdir -p /usr/share/apt/keyrings
-          wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo gpg --dearmor -o /usr/share/apt/keyrings/google-chrome.gpg
-          echo "deb [arch=amd64 signed-by=/usr/share/apt/keyrings/google-chrome.gpg] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
+          # Install Chrome from official Google repo
+          echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
+          wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
           sudo apt-get update
           sudo apt-get install -y google-chrome-stable
 
           # Install matching ChromeDriver
-          CHROME_VERSION=$(google-chrome --version | awk '{print $3}' | cut -d'.' -f1)
-          CHROMEDRIVER_VERSION=$(wget -qO- "https://chromedriver.storage.googleapis.com/LATEST_RELEASE_$CHROME_VERSION")
+          CHROME_MAJOR_VERSION=$(google-chrome --version | awk '{print $3}' | cut -d'.' -f1)
+          CHROMEDRIVER_VERSION=$(wget -qO- "https://chromedriver.storage.googleapis.com/LATEST_RELEASE_$CHROME_MAJOR_VERSION")
           wget "https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip"
           unzip chromedriver_linux64.zip
           sudo mv chromedriver /usr/local/bin/
@@ -47,8 +51,11 @@ jobs:
         run: pkill -f chrome || true
 
       - name: Run Cucumber Tests
-        run: mvn test -Dwebdriver.chrome.driver=/usr/local/bin/chromedriver -Dheadless=true -Dbrowser=chrome -DchromeOptions.args="--no-sandbox,--disable-dev-shm-usage,--headless,--remote-debugging-port=9222"
-
+        run: export DISPLAY=:99
+          Xvfb :99 -screen 0 1920x1080x24 +extension RANDR > /dev/null 2>&1 &
+          mvn test \
+          -Dwebdriver.chrome.driver=/usr/local/bin/chromedriver \
+          -DchromeOptions.args="--no-sandbox,--disable-dev-shm-usage,--headless=new,--remote-debugging-port=9222,--window-size=1920x1080,--disable-gpu,--disable-software-rasterizer"
       - name: Upload Cucumber Reports
         uses: actions/upload-artifact@v4.0.0
         with:
