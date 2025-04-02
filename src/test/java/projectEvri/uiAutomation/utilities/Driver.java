@@ -42,6 +42,7 @@ public class Driver {
                 options.addArguments("--disable-gpu");
                 options.addArguments("--window-size=1920,1080");
                 driver = new ChromeDriver(options);
+
                 //driver = new ChromeDriver();
                 break;
             case "chrome-headless":
