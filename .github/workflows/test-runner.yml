@@ -13,42 +13,39 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4.0.0
 
-      - name: Install Chrome
+      - name: Install Chrome and ChromeDriver
         run: |
-                sudo apt-get update
-                sudo apt-get install -y google-chrome-stable
+          sudo apt-get update
+          sudo apt-get install -y google-chrome-stable
+          sudo apt-get install -y chromedriver
 
       - name: Set up Java
         uses: actions/setup-java@v3
         with:
-          java-version: '17'  # Adjust to your project's Java version
-          distribution: 'adopt'  # Specify 'adopt' for AdoptOpenJDK
-
-      - name: Build with Maven
-        run: mvn clean install  # Replace with your build command
-
-      - name: Run Cucumber Tests
-        run: mvn test  # Replace with your test command
-
-      - name: Upload Cucumber Reports
-        uses: actions/upload-artifact@v4.0.0
-        with:
-         name: Cucumber-Reports
-         path: target/cucumber-html-reports/
+          java-version: '17'
+          distribution: 'adopt'
 
       - name: Set up environment variables for EVRI credentials
         run: |
-           echo "EVRIEMAIL=${{ secrets.EVRIEMAIL }}" >> $GITHUB_ENV
-           echo "EVRIPASSWORD=${{ secrets.EVRIPASSWORD }}" >> $GITHUB_ENV
+          echo "EVRIEMAIL=${{ secrets.EVRIEMAIL }}" >> $GITHUB_ENV
+          echo "EVRIPASSWORD=${{ secrets.EVRIPASSWORD }}" >> $GITHUB_ENV
 
-      - name: Use EVRI credentials in your build
-        run: |
-            echo "Using EVRI credentials"
-            echo "Email: $EVRIEMAIL"
-            echo "Password: $EVRIPASSWORD"
+      - name: Build with Maven
+        run: mvn clean install
 
       - name: Run Cucumber Tests
         run: mvn test -Dwebdriver.chrome.driver=/usr/bin/chromedriver -Dheadless=true
 
-      - name: Kill existing Chrome processes
-        run: pkill -f chrome || true
+      - name: Upload Cucumber Reports
+        uses: actions/upload-artifact@v4.0.0
+        with:
+          name: Cucumber-Reports
+          path: target/cucumber-html-reports/
+
+      - name: Kill existing Chrome processes (if any)
+        run: |
+          if pgrep chrome; then
+            pkill -f chrome
+          else
+            echo "No running Chrome processes found."
+          fi
