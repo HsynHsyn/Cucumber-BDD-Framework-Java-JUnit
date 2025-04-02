@@ -34,7 +34,7 @@ public class Driver {
 //        options.addArguments("--remote-allow-origins=*");
         switch (browser) {
             case "chrome":
-                driver = new ChromeDriver();
+                driver = new ChromeDriver(options);
                 break;
             case "chrome-headless":
                 driver = new ChromeDriver(options);
