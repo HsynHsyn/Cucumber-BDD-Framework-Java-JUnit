@@ -129,7 +129,6 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <cucumberJsonFile>target/cucumber.json</cucumberJsonFile>
                     <outputDirectory>target/cucumber-reports</outputDirectory>
                 </configuration>
             </plugin>
