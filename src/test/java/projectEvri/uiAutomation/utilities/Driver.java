@@ -30,8 +30,6 @@ public class Driver {
 //        options.addArguments("--headless=new");
 //        options.addArguments("--remote-allow-origins=*");
 
-
-
         switch (browser) {
             case "chrome":
                 ChromeOptions options = new ChromeOptions();
@@ -73,6 +71,7 @@ public class Driver {
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.manage().window().maximize();
+
         PageInitializer.initialize();
         actions = new Actions(driver);
         return driver;
