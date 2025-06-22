@@ -25,7 +25,7 @@ public class EvriParcelShippingStepDefs extends CommonUISteps {
 
     @When("user enters {string}, {string} and selects {string}")
     public void user_enters_and_selects(String fromPostcode, String toPostcode, String weight) {
-        waitFor(2);
+        waitFor(3);
         dashboardPage.fromPostcodeArea.sendKeys(fromPostcode);
         dashboardPage.toPostcodeArea.sendKeys(toPostcode);
         dashboardPage.weightChoice.sendKeys(weight);

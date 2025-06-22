@@ -9,7 +9,6 @@ import projectEvri.uiAutomation.pages.PageInitializer;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
-import java.awt.event.InputEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
