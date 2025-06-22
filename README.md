@@ -135,7 +135,11 @@ Run all tests:
 ```sh
 mvn test or mvn clean test
 ```
+```
+npx allure generate allure-results --clean
 
+
+```
 Run tests with a specific tag:
 
 ```sh
@@ -159,7 +163,7 @@ You can execute tests using JUnit runners (`CukesRunner.java` or `FailedTestRunn
 2. **Open the report in your browser**:
 
    ```bash
-   npx allure serve allure-results or allure serve allure-results  
+   npx allure serve allure-results  
    ```
 ---
 
