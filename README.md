@@ -133,7 +133,7 @@ Feature: Performing a Google Search
 Run all tests:
 
 ```sh
-mvn test
+mvn test or mvn clean test
 ```
 
 Run tests with a specific tag:
@@ -146,6 +146,21 @@ mvn test -Dcucumber.options="--tags @test001"
 
 You can execute tests using JUnit runners (`CukesRunner.java` or `FailedTestRunner.java`) inside your IDE.
 
+---
+
+## 📊 How to View Allure Report
+
+1. **Generate the HTML report **:
+
+   ```bash
+   npx allure generate allure-results --clean -o allure-report
+   ```
+
+2. **Open the report in your browser**:
+
+   ```bash
+   npx allure serve allure-results or allure serve allure-results  
+   ```
 ---
 
 ## 📊 Test Reports

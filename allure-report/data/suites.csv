@@ -1,0 +1,11 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"  As a customer, I want to send a parcel via Evri and ensure that the product name appears in the basket
+  so that I can proceed to the checkout payment page at the final stage.
+
+  Acceptance Criteria (ACs);
+  AC1: User should enter parcel details before proceeding.
+  AC2: User must select a valid delivery option.
+  AC3: AC3: User must provide product name.
+  AC4: The user must enter sender and recipient addresses.
+  AC5: The user must provide personal details.
+  AC6: The product name should appear in the basket, and the user should be able to proceed to the checkout page.","35710","Verify that user sends a parcel and sees item name in the basket","","Sun Jun 22 13:25:20 BST 2025","passed","Sun Jun 22 13:25:56 BST 2025","","Parcel Shipping and Checkout Validation","Verify that user sends a parcel and sees item name in the basket",""

@@ -11,7 +11,9 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         plugin = {"json:target/cucumber.json",
                 "rerun:target/failed.txt",
-                "me.jvt.cucumber.report.PrettyReports:target"},
+                "me.jvt.cucumber.report.PrettyReports:target",
+                "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"},
+                
         features = "src/test/resources/uiFeatures",
         glue = "projectEvri/uiAutomation/step_definitions",
         dryRun = false,
