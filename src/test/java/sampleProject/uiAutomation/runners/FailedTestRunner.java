@@ -1,4 +1,4 @@
-package projectEvri.uiAutomation.runners;
+package sampleProject.uiAutomation.runners;
 
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;

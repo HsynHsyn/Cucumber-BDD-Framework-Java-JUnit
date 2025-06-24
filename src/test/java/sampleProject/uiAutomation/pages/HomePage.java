@@ -1,8 +1,8 @@
-package projectEvri.uiAutomation.pages;
+package sampleProject.uiAutomation.pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import projectEvri.uiAutomation.utilities.ConfigurationReader;
+import sampleProject.uiAutomation.utilities.ConfigurationReader;
 
 /**
  * Represents the Home Page of the application.

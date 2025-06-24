@@ -1,15 +1,15 @@
-package projectEvri.uiAutomation.step_definitions;
+package sampleProject.uiAutomation.step_definitions;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import projectEvri.uiAutomation.utilities.CommonUISteps;
-import projectEvri.uiAutomation.utilities.ConfigurationReader;
-import projectEvri.uiAutomation.utilities.Log;
+import sampleProject.uiAutomation.utilities.CommonUISteps;
+import sampleProject.uiAutomation.utilities.ConfigurationReader;
+import sampleProject.uiAutomation.utilities.Log;
 
 import static org.junit.Assert.assertEquals;
 
-public class EvriParcelShippingStepDefs extends CommonUISteps {
+public class ParcelShippingStepDefs extends CommonUISteps {
 
     public String parcelContent;
 

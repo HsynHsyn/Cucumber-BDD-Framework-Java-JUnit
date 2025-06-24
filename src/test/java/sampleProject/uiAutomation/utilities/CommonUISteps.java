@@ -1,11 +1,11 @@
-package projectEvri.uiAutomation.utilities;
+package sampleProject.uiAutomation.utilities;
 
 import org.apache.commons.io.FileUtils;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.*;
-import projectEvri.uiAutomation.pages.PageInitializer;
+import sampleProject.uiAutomation.pages.PageInitializer;
 
 import javax.imageio.ImageIO;
 import java.awt.*;

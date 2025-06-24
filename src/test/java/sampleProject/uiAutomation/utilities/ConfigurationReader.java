@@ -1,4 +1,4 @@
-package projectEvri.uiAutomation.utilities;
+package sampleProject.uiAutomation.utilities;
 
 import java.io.FileInputStream;
 import java.util.Properties;

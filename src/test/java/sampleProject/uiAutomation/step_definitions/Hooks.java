@@ -1,11 +1,11 @@
-package projectEvri.uiAutomation.step_definitions;
+package sampleProject.uiAutomation.step_definitions;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
-import projectEvri.uiAutomation.utilities.CommonUISteps;
-import projectEvri.uiAutomation.utilities.Driver;
-import projectEvri.uiAutomation.utilities.Log;
+import sampleProject.uiAutomation.utilities.CommonUISteps;
+import sampleProject.uiAutomation.utilities.Driver;
+import sampleProject.uiAutomation.utilities.Log;
 
 
 public class Hooks extends Log{

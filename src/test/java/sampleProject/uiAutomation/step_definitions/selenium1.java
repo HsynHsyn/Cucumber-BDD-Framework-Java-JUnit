@@ -1,4 +1,4 @@
-package projectEvri.uiAutomation.step_definitions;
+package sampleProject.uiAutomation.step_definitions;
 
 import java.time.Duration;
 import java.util.List;

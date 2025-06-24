@@ -1,4 +1,4 @@
-package projectEvri.uiAutomation.runners;
+package sampleProject.uiAutomation.runners;
 
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
@@ -15,9 +15,9 @@ import org.junit.runner.RunWith;
                 "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"},
                 
         features = "src/test/resources/uiFeatures",
-        glue = "projectEvri/uiAutomation/step_definitions",
+        glue = "sampleProject/uiAutomation/step_definitions",
         dryRun = false,
-        tags = "@evri"
+        tags = ""
 )
 public class CukesRunner {
 }

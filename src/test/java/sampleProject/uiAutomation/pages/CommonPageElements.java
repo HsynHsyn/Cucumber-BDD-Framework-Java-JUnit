@@ -1,9 +1,9 @@
-package projectEvri.uiAutomation.pages;
+package sampleProject.uiAutomation.pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import projectEvri.uiAutomation.utilities.Driver;
+import sampleProject.uiAutomation.utilities.Driver;
 
 /**
  * Abstract base class for page objects that contains common web elements shared across multiple pages.

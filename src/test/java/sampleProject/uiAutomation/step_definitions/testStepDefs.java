@@ -1,4 +1,4 @@
-package projectEvri.uiAutomation.step_definitions;
+package sampleProject.uiAutomation.step_definitions;
 
 
 import org.junit.jupiter.api.BeforeEach;

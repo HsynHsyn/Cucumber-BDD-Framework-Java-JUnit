@@ -1,4 +1,4 @@
-package projectEvri.uiAutomation.utilities;
+package sampleProject.uiAutomation.utilities;
 
 import org.apache.log4j.Logger;
 

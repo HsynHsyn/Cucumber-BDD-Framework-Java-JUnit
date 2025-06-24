@@ -1,7 +1,7 @@
-package projectEvri.uiAutomation.pages;
+package sampleProject.uiAutomation.pages;
 
 
-import projectEvri.uiAutomation.utilities.Driver;
+import sampleProject.uiAutomation.utilities.Driver;
 
 /**
  * Initializes page objects for the UI automation framework.

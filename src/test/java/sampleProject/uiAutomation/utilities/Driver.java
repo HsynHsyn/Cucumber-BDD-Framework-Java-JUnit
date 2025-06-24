@@ -1,4 +1,4 @@
-package projectEvri.uiAutomation.utilities;
+package sampleProject.uiAutomation.utilities;
 
 
 import org.openqa.selenium.WebDriver;
@@ -11,7 +11,7 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.safari.SafariDriver;
-import projectEvri.uiAutomation.pages.PageInitializer;
+import sampleProject.uiAutomation.pages.PageInitializer;
 
 import java.io.File;
 import java.time.Duration;
