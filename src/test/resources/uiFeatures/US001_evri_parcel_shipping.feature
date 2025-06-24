@@ -1,4 +1,4 @@
-
+@wip
 Feature: Parcel Shipping and Checkout Validation
   As a customer, I want to send a parcel via Evri and ensure that the product name appears in the basket
   so that I can proceed to the checkout payment page at the final stage.
