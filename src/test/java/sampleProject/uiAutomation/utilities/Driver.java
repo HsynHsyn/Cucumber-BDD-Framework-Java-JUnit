@@ -13,9 +13,9 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.safari.SafariDriver;
 import sampleProject.uiAutomation.pages.PageInitializer;
 
-import java.io.File;
+
 import java.time.Duration;
-import java.util.UUID;
+
 
 public class Driver {
 

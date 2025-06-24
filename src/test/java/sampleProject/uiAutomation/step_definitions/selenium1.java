@@ -45,7 +45,7 @@ public class selenium1 {
     @Test
     public void test02() throws InterruptedException{
 
-        String expectedLinkText = "A/B Testing";
+        //String expectedLinkText = "A/B Testing";
         WebElement ABTestingButton = driver.findElement(By.linkText("A/B Testing"));
         ABTestingButton.click();
         driver.navigate().back();

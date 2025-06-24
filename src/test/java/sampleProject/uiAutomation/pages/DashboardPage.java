@@ -2,7 +2,7 @@ package sampleProject.uiAutomation.pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
+
 
 /**
  * This class extends CommonPageElements to inherit shared web elements and functionality.
